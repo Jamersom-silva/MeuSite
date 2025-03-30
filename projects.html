@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de projetos desenvolvidos por [Seu Nome], desenvolvedor Full-Stack">
+    <title>Projetos | Dev Jamersom Silva</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.0/css/lightgallery-bundle.min.css">
+    <style>
+        /* Estilos específicos da página de projetos */
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-lg);
+        }
+        
+        .project-card {
+            background: var(--bg-light);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .project-media {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .project-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .project-card:hover .project-media img {
+            transform: scale(1.05);
+        }
+        
+        .project-badges {
+            position: absolute;
+            top: var(--space-sm);
+            right: var(--space-sm);
+            display: flex;
+            gap: var(--space-xs);
+        }
+        
+        .project-badge {
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--border-radius-xl);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .project-badge.featured {
+            background-color: var(--accent-color);
+        }
+        
+        .project-badge.full {
+            background-color: var(--primary-color);
+        }
+        
+        .project-badge.front {
+            background-color: var(--secondary-color);
+        }
+        
+        .project-badge.mobile {
+            background-color: #8e44ad;
+        }
+        
+        .project-content {
+            padding: var(--space-md);
+        }
+        
+        .project-meta {
+            margin-top: var(--space-md);
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-md);
+        }
+        
+        .tech-tags span {
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--border-radius-xl);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .tag-react { background-color: #61dafb; color: #282c34; }
+        .tag-node { background-color: #68a063; color: white; }
+        .tag-vue { background-color: #42b883; color: white; }
+        .tag-firebase { background-color: #ffcb2b; color: #12181a; }
+        
+        .project-links {
+            display: flex;
+            gap: var(--space-md);
+        }
+        
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: color var(--transition-fast);
+        }
+        
+        .project-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content container">
+            <a href="index.html" class="logo">
+                <h1>Dev <span>Jamersom Silva</span></h1>
+            </a>
+            <nav class="main-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html" class="active">Projetos</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-button" aria-label="Menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content container">
+                <h1 class="page-title">Meus Projetos</h1>
+                <p class="hero-description">Explore meu trabalho e veja como posso ajudar a transformar suas ideias em realidade</p>
+            </div>
+        </section>
+
+        <section class="projects-section container">
+            <div class="projects-toolbar">
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="front">Front-End</button>
+                    <button class="filter-btn" data-filter="back">Back-End</button>
+                    <button class="filter-btn" data-filter="full">Full-Stack</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                </div>
+                
+                <div class="search-box">
+                    <input type="text" id="project-search" placeholder="Buscar projetos...">
+                    <button class="search-button" aria-label="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projeto 1 - Full Stack -->
+                <article class="project-card" data-category="full" data-tech="react node mongodb" data-title="E-commerce Completo">
+                    <div class="project-media">
+                        <a href="assets/images/projetos/projeto1-full.jpg" class="gallery-item">
+                            <img src="assets/images/projetos/projeto1-thumb.jpg" alt="E-commerce Completo" loading="lazy">
+                        </a>
+                        <div class="project-badges">
+                            <span class="project-badge full">Full-Stack</span>
+                            <span class="project-badge featured">Destaque</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Loja Virtual Completa</h3>
+                        <p class="project-excerpt">Plataforma de e-commerce com carrinho de compras, checkout seguro e painel administrativo.</p>
+                        
+                        <div class="project-meta">
+                            <div class="tech-tags">
+                                <span class="tag-react">Vue.js</span>
+                                <span class="tag-node">Python/Django</span>
+                                <span class="tag-mongo">MongoDB</span>
+                            </div>
+                            
+                            <div class="project-stats">
+                                <span class="stat-item">
+                                    <i class="fas fa-calendar-alt"></i> 3 meses
+                                </span>
+                                <span class="stat-item">
+                                    <i class="fas fa-code"></i> 15k linhas
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="link-demo">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="link-code">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 2 - Front-End -->
+                <article class="project-card" data-category="front" data-tech="vue chartjs tailwind" data-title="Dashboard Financeiro">
+                    <div class="project-media">
+                        <div class="project-gallery">
+                            <a href="assets/images/projetos/projeto2-1.jpg" class="gallery-item"></a>
+                            <a href="assets/images/projetos/projeto2-2.jpg" class="gallery-item"></a>
+                            <a href="assets/images/projetos/projeto2-3.jpg" class="gallery-item"></a>
+                        </div>
+                        <img src="assets/images/projetos/projeto2-thumb.jpg" alt="Dashboard Financeiro" loading="lazy">
+                        <div class="project-badges">
+                            <span class="project-badge front">Front-End</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Dashboard Financeiro</h3>
+                        <p class="project-excerpt">Painel administrativo com visualização de dados em tempo real e exportação em múltiplos formatos.</p>
+                        
+                        <div class="project-meta">
+                            <div class="tech-tags">
+                                <span class="tag-vue">Vue.js</span>
+                                <span class="tag-chart">Chart.js</span>
+                                <span class="tag-tailwind">Tailwind</span>
+                            </div>
+                            
+                            <div class="project-stats">
+                                <span class="stat-item">
+                                    <i class="fas fa-calendar-alt"></i> 6 semanas
+                                </span>
+                                <span class="stat-item">
+                                    <i class="fas fa-code"></i> 8k linhas
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="link-demo">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="link-code">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 3 - Mobile -->
+                <article class="project-card" data-category="mobile" data-tech="reactnative firebase" data-title="App de Fitness">
+                    <div class="project-media">
+                        <video muted loop class="project-video">
+                            <source src="assets/videos/projeto3-preview.mp4" type="video/mp4">
+                        </video>
+                        <button class="play-button" aria-label="Reproduzir vídeo">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="project-badges">
+                            <span class="project-badge mobile">Mobile</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>App Fitness Track</h3>
+                        <p class="project-excerpt">Aplicativo para acompanhamento de exercícios e nutrição com integração a wearables.</p>
+                        
+                        <div class="project-meta">
+                            <div class="tech-tags">
+                                <span class="tag-react">React Native</span>
+                                <span class="tag-firebase">Firebase</span>
+                            </div>
+                            
+                            <div class="project-stats">
+                                <span class="stat-item">
+                                    <i class="fas fa-calendar-alt"></i> 4 meses
+                                </span>
+                                <span class="stat-item">
+                                    <i class="fas fa-code"></i> 12k linhas
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="link-demo">
+                                <i class="fab fa-apple"></i> App Store
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="link-code">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-button disabled" aria-label="Página anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button" aria-label="Próxima página">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Sobre Mim</h3>
+                    <p>Desenvolvedor Full-Stack especializado em criar soluções digitais performáticas e escaláveis.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/seuuser" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/seuuser" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:seu@email.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="projects.html"><i class="fas fa-chevron-right"></i> Projetos</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                    </ul>
+                </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> [Seu Nome]. Todos os direitos reservados.</p>
+                <div class="legal-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Serviço</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="assets/js/main.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.0/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.0/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.0/plugins/thumbnail/lg-thumbnail.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="assets/js/projects.js" type="module"></script>
+    
+    <script>
+        // Atualiza o ano atual no copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Inicializa partículas no rodapé (opcional)
+        if (document.getElementById('footer-particles')) {
+            particlesJS('footer-particles', {
+                particles: {
+                    number: { value: 30, density: { enable: true, value_area: 800 } },
+                    color: { value: "#ffffff" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 2, random: true },
+                    line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.1, width: 1 },
+                    move: { enable: true, speed: 1, direction: "none", random: true, straight: false, out_mode: "out" }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: { onhover: { enable: true, mode: "grab" } }
+                }
+            });
+        }
+        
+        // Inicializa lightGallery
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleries = document.querySelectorAll('.project-gallery, .gallery-item');
+            galleries.forEach(gallery => {
+                lightGallery(gallery, {
+                    selector: 'a',
+                    download: false,
+                    zoom: true,
+                    thumbnail: true
+                });
+            });
+            
+            // Controle de vídeo
+            const playButtons = document.querySelectorAll('.play-button');
+            playButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const video = this.parentElement.querySelector('video');
+                    if (video.paused) {
+                        video.play();
+                        this.style.display = 'none';
+                    }
+                });
+            });
+            
+            const videos = document.querySelectorAll('.project-video');
+            videos.forEach(video => {
+                video.addEventListener('click', function() {
+                    if (this.paused) {
+                        this.play();
+                        this.nextElementSibling.style.display = 'none';
+                    } else {
+                        this.pause();
+                        this.nextElementSibling.style.display = 'flex';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

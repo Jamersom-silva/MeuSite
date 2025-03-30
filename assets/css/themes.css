@@ -1,0 +1,51 @@
+/* ===== TEMA ESCURO ===== */
+[data-theme="dark"] {
+    --text-color: #f8f9fa;
+    --text-muted: #adb5bd;
+    --bg-light: #1a1a1a;
+    --bg-dark: #121212;
+    --gray-light: #2d2d2d;
+    --gray-medium: #3d3d3d;
+    --gray-dark: #5c5c5c;
+    
+    background-color: var(--bg-dark);
+    
+    .card,
+    .skill-card,
+    .contact-info,
+    .form-control {
+        background-color: rgba(30, 30, 30, 0.8);
+        border-color: rgba(255,255,255,0.1);
+        color: var(--text-color);
+    }
+    
+    .form-control {
+        background-color: var(--gray-light);
+        border-color: var(--gray-medium);
+    }
+    
+    .project-content,
+    .about-text,
+    .contact-info {
+        color: var(--text-color);
+    }
+    
+    .tech-tags span {
+        color: white !important;
+    }
+    
+    .project-links .link-code {
+        color: var(--gray-dark);
+    }
+    
+    .filter-btn {
+        border-color: var(--text-color);
+        color: var(--text-color);
+    }
+    
+    .filter-btn.active,
+    .filter-btn:hover {
+        background: var(--text-color);
+        color: var(--primary-color);
+    }
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio profissional de [Seu Nome], desenvolvedor Full-Stack especializado em [suas tecnologias principais]">
+    <title>Dev Jamersom Silva | Portfólio Profissional</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.css">
+</head>
+<body>
+  
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content container">
+            <a href="index.html" class="logo">
+                <h1>Dev <span>Jamersom Silva</span></h1>
+            </a>
+            <nav class="main-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="projects.html">Projetos</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-button" aria-label="Menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section com Partículas -->
+        <section class="hero" id="particles-js">
+            <div class="hero-content container">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Transformando ideias em</span>
+                        <span class="title-line highlight">soluções digitais</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Desenvolvedor Back-End & <span class="typewriter"></span></h2>
+                    <p class="hero-description">Crio experiências web performáticas, escaláveis e focadas nos resultados do seu negócio.</p>
+                    <div class="hero-cta">
+                        <a href="projects.html" class="btn btn-primary btn-icon">
+                            <span>Ver Projetos</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">Contato Rápido</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img src="" alt="[Jamersom Silva]" loading="eager">
+                        <div class="tech-bubble react" data-tooltip="React Specialist">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="tech-bubble node" data-tooltip="Node.js Expert">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <div class="tech-bubble python" data-tooltip="Python Developer">
+                            <i class="fab fa-python"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#services" class="scroll-down" aria-label="Rolar para baixo">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- Seção de Serviços -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title">Como Posso Ajudar</h2>
+                <p class="section-subtitle">Serviços especializados para impulsionar seu negócio digital</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Desenvolvimento Web</h3>
+                        <p>Sites e aplicações web personalizadas com as melhores tecnologias do mercado.</p>
+                        <ul class="service-techs">
+                            <li>React/Vue.js</li>
+                            <li>HTML5/CSS3</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Back-End & APIs</h3>
+                        <p>Sistemas robustos e APIs eficientes para alimentar sua aplicação.</p>
+                        <ul class="service-techs">
+                            
+                            <li>Node.js/Express</li>
+                            <li>Python/Django</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Aplicativos Mobile</h3>
+                        <p>Soluções híbridas que funcionam perfeitamente  Android.</p>
+                        <ul class="service-techs">
+                            <li>React Native</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destaque de Projetos -->
+        <section class="featured-projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Projetos em Destaque</h2>
+                    <a href="projects.html" class="view-all">Ver Todos <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="swiper projects-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Projeto 1 -->
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <div class="project-badge">Destaque</div>
+                                <img src="assets/images/projetos/destaque1.jpg" alt="E-commerce Platform" loading="lazy">
+                                <div class="project-overlay">
+                                    <h3>Loja Virtual Premium</h3>
+                                    <p>Plataforma completa de e-commerce com painel administrativo</p>
+                                    <a href="projects.html#project1" class="btn btn-small">Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Projeto 2 -->
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <img src="assets/images/projetos/destaque2.jpg" alt="Health Dashboard" loading="lazy">
+                                <div class="project-overlay">
+                                    <h3>Sistema de Saúde</h3>
+                                    <p>Dashboard médico com visualização de dados em tempo real</p>
+                                    <a href="projects.html#project2" class="btn btn-small">Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Projeto 3 -->
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <div class="project-badge">Novo</div>
+                                <img src="assets/images/projetos/destaque3.jpg" alt="Mobile App" loading="lazy">
+                                <div class="project-overlay">
+                                    <h3>App de Fitness</h3>
+                                    <p>Acompanhamento de atividades físicas e nutrição</p>
+                                    <a href="projects.html#project3" class="btn btn-small">Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Tecnologias -->
+        <section class="tech-section">
+            <div class="container">
+                <h2 class="section-title">Tecnologias que Domino</h2>
+                <p class="section-subtitle">Ferramentas modernas para resultados excepcionais</p>
+                
+                <div class="tech-grid">
+                    <div class="tech-item" data-tooltip="React">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="tech-item" data-tooltip="Node.js">
+                        <i class="fab fa-node-js"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="tech-item" data-tooltip="Python">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item" data-tooltip="JavaScript">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-item" data-tooltip="HTML5">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-item" data-tooltip="CSS3">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tech-item" data-tooltip="Git">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="tech-item" data-tooltip="AWS">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <!-- CTA Final -->
+        <section class="final-cta">
+            <div class="container">
+                <h2>Pronto para Transformar Sua Ideia em Realidade?</h2>
+                <p>Vamos conversar sobre como posso ajudar no seu próximo projeto</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">Iniciar Projeto</a>
+                    <a href="about.html" class="btn btn-secondary btn-large">Conheça Meu Trabalho</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Sobre Mim</h3>
+                    <p>Desenvolvedor Full-Stack especializado em criar soluções digitais performáticas e escaláveis.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Jamersom-silva" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jamersom-silva/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="jamersom.silva@outlook.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="projects.html"><i class="fas fa-chevron-right"></i> Projetos</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                    </ul>
+                </div>
+                
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> [Seu Nome]. Todos os direitos reservados.</p>
+                <div class="legal-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Serviço</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="assets/js/home.js" type="module"></script>
+</body>
+</html>
