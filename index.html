@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio profissional de [Seu Nome], desenvolvedor Full-Stack especializado em [suas tecnologias principais]">
+    <meta name="description" content="Portfólio profissional de Jamersom Silva, desenvolvedor Full-Stack especializado em soluções web modernas">
     <title>Dev Jamersom Silva | Portfólio Profissional</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/themes.css">
@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.css">
 </head>
 <body>
-  
+    <!-- Efeito de Partículas em Toda a Página -->
+    <div id="particles-js" class="page-particles"></div>
 
     <!-- Preloader -->
     <div class="preloader">
@@ -43,8 +44,8 @@
     </header>
 
     <main>
-        <!-- Hero Section com Partículas -->
-        <section class="hero" id="particles-js">
+        <!-- Hero Section -->
+        <section class="hero">
             <div class="hero-content container">
                 <div class="hero-text">
                     <h1 class="hero-title">
@@ -63,7 +64,7 @@
                 </div>
                 <div class="hero-image">
                     <div class="image-wrapper">
-                        <img src="" alt="[Jamersom Silva]" loading="eager">
+                        <img src="assets/images/profile.jpg" alt="Jamersom Silva" loading="eager">
                         <div class="tech-bubble react" data-tooltip="React Specialist">
                             <i class="fab fa-react"></i>
                         </div>
@@ -108,10 +109,8 @@
                         <h3>Back-End & APIs</h3>
                         <p>Sistemas robustos e APIs eficientes para alimentar sua aplicação.</p>
                         <ul class="service-techs">
-                            
                             <li>Node.js/Express</li>
                             <li>Python/Django</li>
-                            
                         </ul>
                     </div>
                     
@@ -120,7 +119,7 @@
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <h3>Aplicativos Mobile</h3>
-                        <p>Soluções híbridas que funcionam perfeitamente  Android.</p>
+                        <p>Soluções híbridas que funcionam perfeitamente em Android.</p>
                         <ul class="service-techs">
                             <li>React Native</li>
                         </ul>
@@ -225,8 +224,6 @@
             </div>
         </section>
 
-       
-
         <!-- CTA Final -->
         <section class="final-cta">
             <div class="container">
@@ -253,7 +250,7 @@
                         <a href="https://www.linkedin.com/in/jamersom-silva/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="jamersom.silva@outlook.com" aria-label="Email">
+                        <a href="mailto:jamersom.silva@outlook.com" aria-label="Email">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -269,21 +266,35 @@
                     </ul>
                 </div>
                 
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Assine para receber atualizações sobre novos projetos e artigos.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu melhor e-mail" required>
+                        <button type="submit" class="btn btn-accent btn-small">Assinar</button>
+                    </form>
+                </div>
+            </div>
             
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> [Seu Nome]. Todos os direitos reservados.</p>
+                <p>&copy; <span id="current-year"></span> Jamersom Silva. Todos os direitos reservados.</p>
                 <div class="legal-links">
-                    <a href="#">Política de Privacidade</a>
-                    <a href="#">Termos de Serviço</a>
+                    <a href="privacy.html">Política de Privacidade</a>
+                    <a href="terms.html">Termos de Serviço</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="assets/js/main.js" type="module"></script>
+    <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="assets/js/home.js" type="module"></script>
+    <script src="assets/js/particles-config.js"></script>
+    <script src="assets/js/home.js"></script>
+    <script>
+        // Atualiza o ano atual no footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

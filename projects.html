@@ -3,143 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de projetos desenvolvidos por [Seu Nome], desenvolvedor Full-Stack">
-    <title>Projetos | Dev Jamersom Silva</title>
+    <meta name="description" content="Portfólio profissional de Jamersom Silva, desenvolvedor Full-Stack especializado em soluções web modernas">
+    <title>Projetos | Portfólio Profissional</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/themes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.0/css/lightgallery-bundle.min.css">
-    <style>
-        /* Estilos específicos da página de projetos */
-        .project-filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-xl);
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: var(--space-lg);
-        }
-        
-        .project-card {
-            background: var(--bg-light);
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-normal);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .project-media {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .project-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-slow);
-        }
-        
-        .project-card:hover .project-media img {
-            transform: scale(1.05);
-        }
-        
-        .project-badges {
-            position: absolute;
-            top: var(--space-sm);
-            right: var(--space-sm);
-            display: flex;
-            gap: var(--space-xs);
-        }
-        
-        .project-badge {
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--border-radius-xl);
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: white;
-        }
-        
-        .project-badge.featured {
-            background-color: var(--accent-color);
-        }
-        
-        .project-badge.full {
-            background-color: var(--primary-color);
-        }
-        
-        .project-badge.front {
-            background-color: var(--secondary-color);
-        }
-        
-        .project-badge.mobile {
-            background-color: #8e44ad;
-        }
-        
-        .project-content {
-            padding: var(--space-md);
-        }
-        
-        .project-meta {
-            margin-top: var(--space-md);
-        }
-        
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-xs);
-            margin-bottom: var(--space-md);
-        }
-        
-        .tech-tags span {
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--border-radius-xl);
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .tag-react { background-color: #61dafb; color: #282c34; }
-        .tag-node { background-color: #68a063; color: white; }
-        .tag-vue { background-color: #42b883; color: white; }
-        .tag-firebase { background-color: #ffcb2b; color: #12181a; }
-        
-        .project-links {
-            display: flex;
-            gap: var(--space-md);
-        }
-        
-        .project-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            font-weight: 600;
-            color: var(--primary-color);
-            transition: color var(--transition-fast);
-        }
-        
-        .project-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.css">
 </head>
 <body>
+     <!-- Efeito de Partículas em Toda a Página -->
+     <div id="particles-js" class="page-particles"></div>
+
+     <!-- Preloader -->
+     <div class="preloader">
+         <div class="loader"></div>
+     </div>
     <header class="site-header">
         <div class="header-content container">
             <a href="index.html" class="logo">
@@ -377,73 +255,14 @@
         </div>
     </footer>
     
-    <script src="assets/js/main.js" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.0/lightgallery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.0/plugins/zoom/lg-zoom.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.0/plugins/thumbnail/lg-thumbnail.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="assets/js/projects.js" type="module"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="assets/js/particles-config.js"></script>
+    <script src="assets/js/home.js"></script>
     
     <script>
-        // Atualiza o ano atual no copyright
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Inicializa partículas no rodapé (opcional)
-        if (document.getElementById('footer-particles')) {
-            particlesJS('footer-particles', {
-                particles: {
-                    number: { value: 30, density: { enable: true, value_area: 800 } },
-                    color: { value: "#ffffff" },
-                    shape: { type: "circle" },
-                    opacity: { value: 0.3, random: true },
-                    size: { value: 2, random: true },
-                    line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.1, width: 1 },
-                    move: { enable: true, speed: 1, direction: "none", random: true, straight: false, out_mode: "out" }
-                },
-                interactivity: {
-                    detect_on: "canvas",
-                    events: { onhover: { enable: true, mode: "grab" } }
-                }
-            });
-        }
-        
-        // Inicializa lightGallery
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleries = document.querySelectorAll('.project-gallery, .gallery-item');
-            galleries.forEach(gallery => {
-                lightGallery(gallery, {
-                    selector: 'a',
-                    download: false,
-                    zoom: true,
-                    thumbnail: true
-                });
-            });
-            
-            // Controle de vídeo
-            const playButtons = document.querySelectorAll('.play-button');
-            playButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const video = this.parentElement.querySelector('video');
-                    if (video.paused) {
-                        video.play();
-                        this.style.display = 'none';
-                    }
-                });
-            });
-            
-            const videos = document.querySelectorAll('.project-video');
-            videos.forEach(video => {
-                video.addEventListener('click', function() {
-                    if (this.paused) {
-                        this.play();
-                        this.nextElementSibling.style.display = 'none';
-                    } else {
-                        this.pause();
-                        this.nextElementSibling.style.display = 'flex';
-                    }
-                });
-            });
-        });
+       document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

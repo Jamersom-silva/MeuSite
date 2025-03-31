@@ -1,46 +1,48 @@
-<!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Entre em contato com [Seu Nome] para oportunidades profissionais e colaborações">
-    <title>Contato | Dev jamersom silva</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/themes.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css">
-
+<meta name="description" content="Portfólio profissional de Jamersom Silva, desenvolvedor Full-Stack especializado em soluções web modernas">
+<title>Dev Jamersom Silva | Portfólio Profissional</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/themes.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-content container">
-            <a href="index.html" class="logo">
-                <h1>Dev <span>Jamersom Silva</span></h1>
-            </a>
-            <nav class="main-nav" aria-label="Navegação principal">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projetos</a></li>
-                    <li><a href="about.html">Sobre</a></li>
-                    <li><a href="contact.html" class="active">Contato</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button id="theme-toggle" aria-label="Alternar tema">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="mobile-menu-button" aria-label="Menu" aria-expanded="false">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+<!-- Efeito de Partículas em Toda a Página -->
+<div id="particles-js" class="page-particles"></div>
+
+<!-- Preloader -->
+<div class="preloader">
+    <div class="loader"></div>
+</div>
+
+<header class="site-header">
+    <div class="header-content container">
+        <a href="index.html" class="logo">
+            <h1>Dev <span>Jamersom Silva</span></h1>
+        </a>
+        <nav class="main-nav" aria-label="Navegação principal">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="projects.html">Projetos</a></li>
+                <li><a href="about.html">Sobre</a></li>
+                <li><a href="contact.html">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button id="theme-toggle" aria-label="Alternar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="mobile-menu-button" aria-label="Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-    </header>
+    </div>
+</header>
 
     <main>
         <section class="hero">
-            <div id="particles-js"></div>
             <div class="hero-content container">
-                <h1 class="page-title">Entre em Contato</h1>
+                <div class="hero-text">
+                    <h1 class="hero-title">Entre em Contato</h1>
                 <p class="hero-description">Estou disponível para oportunidades e colaborações. Envie sua mensagem!</p>
             </div>
         </section>
@@ -203,99 +205,15 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="assets/js/contact.js" type="module"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="assets/js/particles-config.js"></script>
+    <script src="assets/js/home.js"></script>
     
     <script>
-        // Particles.js Configuration
-      
-
-            // Initialize map (Leaflet)
-            const map = L.map('map').setView([-23.5505, -46.6333], 13); // Default to São Paulo coordinates
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            
-            // Add marker
-            L.marker([-23.5505, -46.6333]).addTo(map)
-                .bindPopup('Minha Localização')
-                .openPopup();
-
-            // Current year for footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-
-            // Form validation
-            const form = document.getElementById('contact-form');
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                if (validateForm()) {
-                    // Show loading state
-                    const submitBtn = form.querySelector('.btn-submit');
-                    submitBtn.classList.add('loading');
-                    
-                    // Simulate form submission
-                    setTimeout(() => {
-                        submitBtn.classList.remove('loading');
-                        alert('Mensagem enviada com sucesso!');
-                        form.reset();
-                    }, 1500);
-                }
-            });
-
-            function validateForm() {
-                let isValid = true;
-                
-                // Validate name
-                const name = document.getElementById('name');
-                if (!name.value.trim()) {
-                    document.getElementById('name-error').textContent = 'Por favor, insira seu nome';
-                    isValid = false;
-                } else {
-                    document.getElementById('name-error').textContent = '';
-                }
-                
-                // Validate email
-                const email = document.getElementById('email');
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email.value)) {
-                    document.getElementById('email-error').textContent = 'Por favor, insira um email válido';
-                    isValid = false;
-                } else {
-                    document.getElementById('email-error').textContent = '';
-                }
-                
-                // Validate subject
-                const subject = document.getElementById('subject');
-                if (!subject.value) {
-                    document.getElementById('subject-error').textContent = 'Por favor, selecione um assunto';
-                    isValid = false;
-                } else {
-                    document.getElementById('subject-error').textContent = '';
-                }
-                
-                // Validate message
-                const message = document.getElementById('message');
-                if (!message.value.trim()) {
-                    document.getElementById('message-error').textContent = 'Por favor, insira sua mensagem';
-                    isValid = false;
-                } else {
-                    document.getElementById('message-error').textContent = '';
-                }
-                
-                // Validate consent
-                const consent = document.getElementById('consent');
-                if (!consent.checked) {
-                    document.getElementById('consent-error').textContent = 'Por favor, aceite os termos';
-                    isValid = false;
-                } else {
-                    document.getElementById('consent-error').textContent = '';
-                }
-                
-                return isValid;
-            }
-    
+        // Atualiza o ano atual no footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
